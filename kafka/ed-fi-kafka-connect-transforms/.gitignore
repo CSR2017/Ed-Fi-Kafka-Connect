@@ -1,0 +1,7 @@
+bin
+.gradle
+build
+
+*.jar
+
+!gradle-wrapper.jar
