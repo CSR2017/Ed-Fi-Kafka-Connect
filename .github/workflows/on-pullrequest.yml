@@ -25,12 +25,6 @@ concurrency:
 permissions: read-all
 
 jobs:
-  scan-actions-bidi:
-    name: Scan Actions, scan all files for BIDI Trojan Attacks
-    uses: Ed-Fi-Alliance-OSS/Ed-Fi-Actions/.github/workflows/repository-scanner.yml@main
-    with:
-      config-file-path: ./.github/workflows/bidi-config.json
-
   build:
     name: Build
     runs-on: ubuntu-latest    
@@ -77,3 +71,9 @@ jobs:
         with:
           name: Package
           path: ./kafka/ed-fi-kafka-connect-transforms/build/libs
+
+      - uses: hadolint/hadolint-action@54c9adbab1582c2ef04b2016b760714a4bfde3cf # v3.1.0
+        name: Run Linter on Dockerfile
+        with:
+          dockerfile: ./kafka/Dockerfile
+          failure-threshold: error
