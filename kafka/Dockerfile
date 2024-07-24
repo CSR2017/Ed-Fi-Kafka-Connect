@@ -20,7 +20,7 @@ WORKDIR /kafka/connect/
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN originalSha="58c27bdb0b8883e2e3291a2aaa42151b77240a33d3361ad620c656e775da14d2" && \
     newSha=$(sha256sum ${package} | awk '{print $1}') && \
-    if [ $originalSha != $newSha ]; then exit 1; fi
+    if [ "$originalSha" != "$newSha" ]; then exit 1; fi
 
 RUN tar -xvf ${package} && \
     rm ${package}
