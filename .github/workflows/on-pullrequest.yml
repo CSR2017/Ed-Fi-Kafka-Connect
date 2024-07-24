@@ -59,6 +59,19 @@ jobs:
         run: ./gradlew clean build
         working-directory: kafka/ed-fi-kafka-connect-transforms
 
+      - name: Run tests with Gradle
+        run: ./gradlew test
+        working-directory: kafka/ed-fi-kafka-connect-transforms
+      
+      - name: Upload Test Results
+        if: always()
+        uses: actions/upload-artifact@26f96dfa697d77e81fd5907df203aa23a56210a8 # v4.3.0
+        with:
+          name: Unit Test Results
+          overwrite: true
+          path: |
+            ./kafka/ed-fi-kafka-connect-transforms/build/reports/tests/test/classes/*.html
+
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
