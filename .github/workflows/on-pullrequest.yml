@@ -54,9 +54,6 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x ./kafka/ed-fi-kafka-connect-transforms/gradlew
 
-      - name: Regenerate the Gradle wrapper
-        run: ./kafka/ed-fi-kafka-connect-transforms/gradlew wrapper
-
       - name: Build with Gradle
         run: ./kafka/ed-fi-kafka-connect-transforms/gradlew build
 
