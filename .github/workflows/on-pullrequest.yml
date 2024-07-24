@@ -52,10 +52,12 @@ jobs:
         uses: gradle/actions/setup-gradle@dbbdc275be76ac10734476cc723d82dfe7ec6eda # v3.4.2
 
       - name: Make gradlew executable
-        run: chmod +x ./kafka/ed-fi-kafka-connect-transforms/gradlew
+        run: chmod +x ./gradlew
+        working-directory: kafka/ed-fi-kafka-connect-transforms
 
       - name: Build with Gradle
-        run: ./kafka/ed-fi-kafka-connect-transforms/gradlew build
+        run: ./gradlew clean build
+        working-directory: kafka/ed-fi-kafka-connect-transforms
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
