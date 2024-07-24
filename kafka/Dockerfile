@@ -17,7 +17,8 @@ ADD --chown=kafka --chmod=600 https://github.com/aiven/opensearch-connector-for-
     /kafka/connect/
 
 WORKDIR /kafka/connect/
-RUN originalSha=58c27bdb0b8883e2e3291a2aaa42151b77240a33d3361ad620c656e775da14d2 && \
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+RUN originalSha="58c27bdb0b8883e2e3291a2aaa42151b77240a33d3361ad620c656e775da14d2" && \
     newSha=$(sha256sum ${package} | awk '{print $1}') && \
     if [ $originalSha != $newSha ]; then exit 1; fi
 
