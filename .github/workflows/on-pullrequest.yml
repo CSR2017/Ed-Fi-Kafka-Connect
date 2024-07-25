@@ -10,12 +10,13 @@ on:
     branches:
       - main
     paths:
-      - "**/*.java"
+      - "kafka/**"
   pull_request:
     branches:
       - main
     paths:
-      - "**/*.java"
+      - "kafka/**"
+      - ".github/**/*.yml"
   workflow_dispatch:
 
 concurrency:
