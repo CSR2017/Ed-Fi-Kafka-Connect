@@ -8,9 +8,10 @@ on:
   workflow_dispatch:
 
 env:
-  IMAGE_NAME: "srajendrancertica/connect-transform-opensearch"
-  DOCKER_USERNAME: "srajendrancertica"
-  DOCKER_HUB_TOKEN: "dckr_pat_bDr3Uz2gFN5K4j3roxiDQuy4h0k"
+  IMAGE_NAME: ${{ vars.IMAGE_NAME }}
+  DOCKER_USERNAME: ${{ vars.DOCKER_USERNAME }}
+  DOCKER_HUB_TOKEN: ${{ secrets.DOCKER_HUB_TOKEN }}
+
   REF: ${{ github.ref_name }}
 
 permissions: read-all
