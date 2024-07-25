@@ -11,6 +11,7 @@ env:
   IMAGE_NAME: ${{ vars.IMAGE_NAME }}
   DOCKER_USERNAME: ${{ vars.DOCKER_USERNAME }}
   DOCKER_HUB_TOKEN: ${{ secrets.DOCKER_HUB_TOKEN }}
+
   REF: ${{ github.ref_name }}
 
 permissions: read-all
