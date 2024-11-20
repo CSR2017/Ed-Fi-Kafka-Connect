@@ -44,11 +44,10 @@ jobs:
       - name: Build and push Kafka connect transforms image
         uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09  # v5.0.0
         with:
-          context: "{{defaultContext}}:kafka"
-          additional_contexts: parentdir=.
+          context: .
           cache-from: type=registry,ref=${{ env.IMAGE_NAME }}:pre
           cache-to: type=inline
-          file: Dockerfile
+          file: ./kafka/Dockerfile
           tags: ${{ steps.prepare-tags.outputs.IMAGETAG }}
           labels: ${{ steps.metadatamanagementservice.outputs.labels }}
           push: false
