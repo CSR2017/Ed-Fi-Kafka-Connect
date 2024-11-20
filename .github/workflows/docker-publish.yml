@@ -22,6 +22,7 @@ jobs:
     steps:
       - name: Copy LICENSE and NOTICES files to docker context
         run: |
+          ls -l ./
           cp -r ./LICENSE ./kafka/
           cp -r ./NOTICES.md ./kafka/
 
