@@ -20,6 +20,11 @@ jobs:
     name: Publish to Docker Hub
     runs-on: ubuntu-latest
     steps:
+      - name: Copy LICENSE and NOTICES files to docker context
+        run: |
+          cp -r ../../LICENSE ../../kafka
+          cp -r ../../NOTICES.md ../../kafka
+
       - name: Prepare Tags
         id: prepare-tags
         run: |         
@@ -45,7 +50,6 @@ jobs:
         uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09  # v5.0.0
         with:
           context: "{{defaultContext}}:kafka"
-          build-context: parentdir=../
           cache-from: type=registry,ref=${{ env.IMAGE_NAME }}:pre
           cache-to: type=inline
           file: Dockerfile
