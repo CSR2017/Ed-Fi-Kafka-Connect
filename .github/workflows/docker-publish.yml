@@ -22,8 +22,8 @@ jobs:
     steps:
       - name: Copy LICENSE and NOTICES files to docker context
         run: |
-          cp -r ../../LICENSE ../../kafka
-          cp -r ../../NOTICES.md ../../kafka
+          cp -r ./LICENSE ../../kafka
+          cp -r ./NOTICES.md ../../kafka
 
       - name: Prepare Tags
         id: prepare-tags
