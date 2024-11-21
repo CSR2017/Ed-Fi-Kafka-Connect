@@ -56,7 +56,7 @@ jobs:
         with:
           context: "{{defaultContext}}:kafka"
           build-contexts: |
-            parentdir=../
+            parentdir=./
           cache-from: type=registry,ref=${{ env.IMAGE_NAME }}:pre
           cache-to: type=inline
           file: Dockerfile
